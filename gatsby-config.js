@@ -1,9 +1,8 @@
 module.exports = {
-  pathPrefix: "/gatsby-react-bootstrap-starter",
   siteMetadata: {
-    title: `Gatsby React Bootstrap Starter`,
-    description: `A starter that includes react-bootstrap and react-icons, along with SASS compilation.`,
-    author: `Billy Jacoby`,
+    title: `Collection of Articles`,
+    description: `View the articles from our database in a browser`,
+    author: `Development Admin`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,12 +19,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-react-bootstrap`,
-        short_name: `react-bootstrap`,
+        name: `articles-bootstrap`,
+        short_name: `articles-bootstrap`,
         start_url: `/`,
         background_color: `#20232a`,
         theme_color: `#20232a`,
         display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
