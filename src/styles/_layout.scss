@@ -1,6 +1,21 @@
-div.main {
+// _layout.scss
+
+.layout-container {
+
+}
+
+.content-container {
   min-height: 100vh;
   padding-bottom: 60px;
+  background-image: linear-gradient(transparent 0%, 20%, #FFFFFFEE 30%, 80%, #FFFFFFCC 100%);
+}
+
+.children-container {
+  h1 {
+    color: $primary-saturated;
+    margin-bottom: 30px;
+    font: 3rem sans-serif;
+  }
 }
 
 div.full-height {
@@ -10,29 +25,5 @@ div.full-height {
 a.link-no-style {
   &:hover {
     text-decoration: none;
-  }
-}
-
-.footer-col {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  footer {
-    display: flex;
-    position: relative;
-    bottom: 0;
-    margin-top: -60px;
-    height: 60px;
-    clear: both;
-    background-color: $color-primary;
-    color: white;
-    justify-content: center;
-    width: 100%;
-
-    span {
-      align-self: center;
-      text-align: center;
-    }
   }
 }

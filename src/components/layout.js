@@ -2,11 +2,14 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
 import { Container, Row, Col } from "react-bootstrap"
 
 import Header from "./header"
 import Navbar from "./navbar"
+import Footer from "./footer"
+
+import layoutBackground from "../images/layout_background.jpg"
+
 
 export default function Layout({ children, pageInfo }) {
   
@@ -22,10 +25,13 @@ export default function Layout({ children, pageInfo }) {
     `
   );
 
-  return (
-      <>
+  console.log(layoutBackground);
 
-        <Container fluid className="px-0 main">
+  return (
+      
+      <Container fluid className="layout-container px-0" style={{ background: `no-repeat center/cover url(${layoutBackground})` }} >
+
+        <Container fluid="lg" className="content-container px-0">
 
           <Row noGutters className="justify-content-center">
             <Col>
@@ -37,7 +43,7 @@ export default function Layout({ children, pageInfo }) {
 
           <Row noGutters>
             <Col>
-              <Container className="mt-5">
+              <Container className="children-container m-4">
                 <main>{children}</main>
               </Container>
             </Col>
@@ -45,18 +51,14 @@ export default function Layout({ children, pageInfo }) {
           
         </Container>
 
-        <Container fluid className="px-0">
+        <Container fluid="lg" className="px-0">
           <Row noGutters>
-            <Col className="footer-col">
-              <footer>
-                <span>
-                  © {new Date().getFullYear()}
-                </span>
-              </footer>
-            </Col>
+              <Col className="footer-col">
+                <Footer />
+              </Col>
           </Row>
         </Container>
 
-      </>
+      </Container>
   )
 }

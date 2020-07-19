@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import logo from "../images/site-logo.svg"
 
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap"
 
@@ -9,21 +10,28 @@ export default function HeaderNavbar({ pageInfo }) {
 
   return (
     <>
-      <Navbar variant="dark" expand="lg" id="site-navbar">
+      <Navbar variant="dark" expand="md" id="site-navbar">
         {/* <Container> */}
 
         <Link to="/" className="link-no-style">
-          <Navbar.Brand as="span">ArticlesDB</Navbar.Brand>
+          <Navbar.Brand as="span">
+            <img className="navbar-logo" src={logo} alt="Site Logo" />
+          </Navbar.Brand>
         </Link>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse id="responsive-navbar-nav">
 
           <Nav className="mr-auto" activeKey={pageInfo && pageInfo.pageName}>
-            <Link to="/page-2" className="link-no-style">
-              <Nav.Link as="span" eventKey="page-2">
-                Page 2
+            <Link to="/" className="link-no-style">
+              <Nav.Link as="span" eventKey="index">
+                Home
+              </Nav.Link>
+            </Link>
+            <Link to="/catalog" className="link-no-style">
+              <Nav.Link as="span" eventKey="catalog">
+                Catalog
               </Nav.Link>
             </Link>
           </Nav>

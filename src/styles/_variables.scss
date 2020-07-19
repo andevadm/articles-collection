@@ -1,1 +1,19 @@
-$color-primary: #20232a;
+// _variables.scss
+
+// Basic custom colors
+$primary-saturated: #E59B1A;
+$primary-dark: #7C520F;
+$primary-light: #E2CBA6;
+$secondary-saturated: #2896CE;
+$secondary-dark: #1C5B7A;
+$secondary-light: #A3C5D6;
+
+// Define Bootstrap themes
+$theme-colors: (
+  "primary": $primary-saturated,
+  "dark": $primary-dark,
+  "light": $primary-light,
+  "secondary": $secondary-saturated,
+  "secondary-dark": $secondary-dark,
+  "secondary-light": $secondary-light
+);

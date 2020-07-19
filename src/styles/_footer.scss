@@ -1,0 +1,24 @@
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  footer {
+    display: flex;
+    position: relative;
+    bottom: 0;
+    margin-top: -60px;
+    height: 60px;
+    clear: both;
+    background-color: $secondary-dark;
+    color: white;
+    justify-content: center;
+    width: 100%;
+
+    span {
+      align-self: center;
+      text-align: center;
+      color: $primary-light;
+    }
+  }
+}

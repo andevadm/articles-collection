@@ -1,10 +1,12 @@
+// index.js
+
 import React from "react"
 import { Row, Col, Container } from "react-bootstrap"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-export default function IndexPage() {
+export default function HomePage() {
 
   return (
   <Layout pageInfo={{ pageName: "index" }}>
@@ -14,8 +16,7 @@ export default function IndexPage() {
       <Row>
         <Col>
           <p>
-            This is a Gatsby Starter that I frequently use to get jump started
-            on quick website builds. It includes the following packages:
+            Here will be a landing page to open articles catalog.
           </p>
         </Col>
       </Row>
