@@ -25,8 +25,6 @@ export default function Layout({ children, pageInfo }) {
     `
   );
 
-  console.log(layoutBackground);
-
   return (
       
       <Container fluid className="layout-container px-0" style={{ background: `no-repeat center/cover url(${layoutBackground})` }} >
@@ -41,9 +39,9 @@ export default function Layout({ children, pageInfo }) {
 
           <Navbar pageInfo={pageInfo} />
 
-          <Row noGutters>
+          <Row noGutters className="py-4">
             <Col>
-              <Container className="children-container m-4">
+              <Container className="children-container">
                 <main>{children}</main>
               </Container>
             </Col>

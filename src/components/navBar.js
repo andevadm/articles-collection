@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import logo from "../images/site-logo.svg"
 
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap"
+import { Navbar, Nav } from "react-bootstrap"
 
 export default function HeaderNavbar({ pageInfo }) {
   
@@ -21,7 +21,7 @@ export default function HeaderNavbar({ pageInfo }) {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse id="basic-navbar-nav">
 
           <Nav className="mr-auto" activeKey={pageInfo && pageInfo.pageName}>
             <Link to="/" className="link-no-style">
@@ -29,24 +29,17 @@ export default function HeaderNavbar({ pageInfo }) {
                 Home
               </Nav.Link>
             </Link>
-            <Link to="/catalog" className="link-no-style">
-              <Nav.Link as="span" eventKey="catalog">
-                Catalog
+            <Link to="/library" className="link-no-style">
+              <Nav.Link as="span" eventKey="library">
+                Library
               </Nav.Link>
             </Link>
           </Nav>
 
           <Nav className="ml-auto">
-            <Form inline onSubmit={e => e.preventDefault()}>
-              <Form.Group>
-                <FormControl
-                  type="text"
-                  placeholder="Fake Search"
-                  className="mr-2"
-                />
-              </Form.Group>
-              <Button>Fake Button</Button>
-            </Form>
+            <Link to="/" className="navbar-button link-no-style btn btn-outline-primary">
+              Contact Us
+            </Link>
           </Nav>
 
         </Navbar.Collapse>
