@@ -1,6 +1,6 @@
 ---
 title: "Periodical literature"
-description: "Periodical literature is a category of serial publications that appear in a new edition on a regular schedule.[1] The most familiar example is the magazine, typically published weekly, monthly, or quarterly. Other examples of periodicals are newsletters, academic journals and yearbooks."
+description: "Periodical literature is a category of serial publications that appear in a new edition on a regular schedule. The most familiar example is the magazine, typically published weekly, monthly, or quarterly. Other examples of periodicals are newsletters, academic journals and yearbooks."
 keywords: [ "periodical", "publication" ]
 author: "Homer Simpson"
 date: "2020-07-19"

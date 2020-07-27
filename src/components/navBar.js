@@ -5,8 +5,6 @@ import logo from "../images/site-logo.svg"
 import { Navbar, Nav } from "react-bootstrap"
 
 export default function HeaderNavbar({ pageInfo }) {
-  
-  console.log(pageInfo);
 
   return (
     <>

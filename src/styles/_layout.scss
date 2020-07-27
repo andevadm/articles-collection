@@ -11,11 +11,18 @@
 }
 
 .children-container {
+  
   h1 {
     color: $primary-saturated;
     margin-bottom: 30px;
     font: 3rem sans-serif;
   }
+
+  h2 {
+    color: $primary-saturated;
+    font: 3.2rem sans-serif;
+  }
+
 }
 
 div.full-height {

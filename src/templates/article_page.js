@@ -1,8 +1,9 @@
 import React from "react"
-import { graphql } from "gatsby"
-import { Container, Row, Col } from "react-bootstrap"
+import { Link, graphql } from "gatsby"
+import { Container, Row, Col, Image } from "react-bootstrap"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export default function ArticlePage({ data }) {
   
@@ -12,6 +13,7 @@ export default function ArticlePage({ data }) {
 
   return (
     <Layout>
+      <SEO title={article.frontmatter.title} />
       <Container fluid>
         <Row>
           <Col>
@@ -19,7 +21,7 @@ export default function ArticlePage({ data }) {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col md className="article-metadata">
             <div className="article-author">
               <strong>Author:</strong> {article.frontmatter.author}
             </div>
@@ -34,17 +36,24 @@ export default function ArticlePage({ data }) {
               <strong>Keywords:</strong> {article.frontmatter.keywords.join(' , ')}
             </div>
           </Col>
-          <Col className="article-image">
-              <img 
+          <Col md className="article-image">
+              <Image 
                 src={image}
                 alt={article.frontmatter.title}
-                width="100%"
-              />
+                fluid
+                rounded
+               />
+          </Col>
+        </Row>
+        <Row>
+          <Col className="article-text">
+            <div dangerouslySetInnerHTML={{ __html: article.html }} />
           </Col>
         </Row>
         <Row>
           <Col>
-            <div dangerouslySetInnerHTML={{ __html: article.html }} />
+            <hr />
+            <Link to="/library">Go back to the library</Link>
           </Col>
         </Row>
       </Container>

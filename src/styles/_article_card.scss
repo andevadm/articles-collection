@@ -1,0 +1,14 @@
+.article-card {
+	background: $secondary-light;
+	height: 100%;
+}
+
+.article-card-author {
+	font-size: 1.1rem;
+	color: $secondary-dark;
+	margin-bottom: 20px;
+}
+
+.article-card-date {
+	color: $primary-dark;
+}
