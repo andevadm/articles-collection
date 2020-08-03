@@ -9,6 +9,8 @@ export default function ArticlePage({ data }) {
   
   const article = data.markdownRemark;
   const image = data.file.publicURL;
+
+  console.log(`Image obtained for the article ${article.frontmatter.title}:`);
   console.log(image);
 
   return (

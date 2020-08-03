@@ -1,8 +1,8 @@
 {
-  "name": "articles-bootstrap",
+  "name": "articles-collection",
   "private": true,
-  "description": "Collection of Articles: view the articles from our database in a browser",
-  "version": "0.1.0",
+  "description": "Simple library example created with Gatsby and Bootstrap",
+  "version": "0.2.0",
   "author": "Development Admin",
   "dependencies": {
     "bootstrap": "^4.3.1",

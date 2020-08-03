@@ -1,3 +1,6 @@
+# Custom settings
+custom/image_src/
+
 # Logs
 logs
 *.log
