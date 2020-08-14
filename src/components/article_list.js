@@ -5,6 +5,10 @@ import ArticleCard from "./article_card"
 
 export default function ArticleList({ articlesList }) { 
 
+  console.log('--3-- ArticleList is loaded -----');
+  console.log('Input list:');
+  console.log(articlesList);
+
   const renderList = articlesList.map((item) =>  {
     return <li className="m-2" key={item.link}>
         <ArticleCard 

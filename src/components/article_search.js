@@ -1,16 +1,12 @@
 import React from "react"
 import { Form, Col } from "react-bootstrap"
 
-export default function ArticleSearch({ selectOrder, searchArticle }) {
+export default function ArticleSearch({ selectOrder, searchArticle, initValue }) {
 
 	// Initialize values for event listeners
 	console.log('--2-- ArticleForm is loaded -----');
-	const initValue = {
-		order: 'date',
-		search: ''
-	};
-	searchArticle(initValue.search);
-	selectOrder(initValue.order);
+	//searchArticle(initValue.search); 
+	//selectOrder(initValue.order); - cause setState error
 
 	return (
 	  	<Form className="article-form" onSubmit={ (event) => event.preventDefault() }>

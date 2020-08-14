@@ -4,8 +4,6 @@ import { Card } from "react-bootstrap"
 
 export default function ArticleCard({ title, author, description, date, image, link}) {
 
-	// <img src={image} alt={title} height="100" />
-
 	return (
 	  <Card className="article-card">
 	  	<Card.Img variant="top" src={image} alt={title}  />
@@ -19,7 +17,7 @@ export default function ArticleCard({ title, author, description, date, image, l
 		  		by <em>{author}</em>
 		  	</Card.Subtitle>
 		  	<Card.Text className="article-card-description">
-		  		{description}
+		  		{/* description */}
 		  	</Card.Text>
 		</Card.Body>
 		<Card.Footer className="article-card-date">

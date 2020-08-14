@@ -7,44 +7,57 @@ import SEO from "../components/seo"
 import ArticleSearch from "../components/article_search"
 import ArticleList from "../components/article_list"
 
-export default function LibraryPage(props) {
+export default class LibraryPage extends React.Component {
 
-	const articlesData = props.data.allMarkdownRemark.nodes;
-  	const imagesData = props.data.allFile.nodes;
-  	console.log('--1-- Library is loaded -----');
 
-  	let listAll = [];
-  	for (let item of articlesData) {
-    	let listElement = {
-        	title: item.frontmatter.title,
-        	author: item.frontmatter.author,
-        	date: item.frontmatter.date,
-        	link: item.fields.slug,
-        	description: item.frontmatter.description,
-        	keywords: item.frontmatter.keywords
-      	};
-    	listElement.image = imagesData.find(image => item.fields.slug.includes(image.name)).publicURL;
-    	listAll.push(listElement);
-  	};
-  	console.log('All articles:');
-  	console.log(listAll);
+	constructor(props) {
+	    
+	    super(props);
+	    this.selectOrder = this.selectOrder.bind(this);
+	    this.searchArticle = this.searchArticle.bind(this);
 
-  	let listStatus = {
-  		order: 'title',
-  		articles: listAll.slice()
-  	};
-  	console.log('List State:');
-  	console.log(listStatus);
+	    // Create initial array with all articles from graphql data
+	    this.listAll = [];
+	    const articlesData = this.props.data.allMarkdownRemark.nodes;
+	  	const imagesData = this.props.data.allFile.nodes;
+	  	console.log('--1-- Library is loaded -----');
+	    for (let item of articlesData) {
+	    	let listElement = {
+	        	title: item.frontmatter.title,
+	        	author: item.frontmatter.author,
+	        	date: item.frontmatter.date,
+	        	link: item.fields.slug,
+	        	description: item.frontmatter.description,
+	        	keywords: item.frontmatter.keywords
+	      	};
+	    	listElement.image = imagesData.find(image => item.fields.slug.includes(image.name)).publicURL;
+	    	this.listAll.push(listElement);
+	  	};
+	  	console.log('All articles:');
+	  	console.log(this.listAll);
 
-  	let listSelected = listStatus.articles;
-  	console.log('Selected Articles:');
-  	console.log(listSelected);
+	  	// Create initial array with selected articles
+	  	this.listSelected = this.listAll.slice();
 
-  	const selectOrder = (value) => {
-  		listStatus.order = value;
+	  	// State includes the array of selected articles
+	  	this.state = {
+	  		articles: this.listSelected
+	    }
+
+	    // Init search string
+	    this.initValue = {
+			order: 'date',
+			search: ''
+		}
+
+	}
+
+	selectOrder(value) {
+
+		if ( value === undefined ) value = 'date';
 
   		// Sort by property in value
-		listSelected.sort(function(a, b) {
+		this.listSelected.sort(function(a, b) {
 		  let propertyA = a[value].toUpperCase(); 
 		  let propertyB = b[value].toUpperCase(); 
 		  if (propertyA < propertyB) {
@@ -56,39 +69,58 @@ export default function LibraryPage(props) {
 		  return 0;
 		});
 		// Reverse for sorting by date to begin from the last articles
-		if ( value === 'date' ) listSelected.reverse();
+		if ( value === 'date' ) this.listSelected.reverse();
 
-  		console.log(`Order: ${listStatus.order}`);
+		// Change
+		this.setState({
+			articles: this.listSelected
+		});
+  		console.log(`Order: ${value}`);
   		console.log('Selected Articles by Order:');
-  		console.log(listSelected);
-  	};
+  		console.log(this.state.articles);
+  	}
 
-  	const searchArticle = (value) => {
+	searchArticle(value) {
+  		
   		if ( value === '' ) {
-  			listSelected = listAll;
+  			this.listSelected = this.listAll.slice();
   		}
   		else {
-  			listSelected = listSelected.filter(function(item){
+  			this.listSelected = this.listSelected.filter(function(item){
   				// Search by title
   				return item.title.toLowerCase().includes(value.toLowerCase())
   			})
   		}
 
+  		this.setState({
+			articles: this.listSelected
+		});
+
   		console.log(`Search: ${value}`);
   		console.log('Selected Articles by Search:');
-  		console.log(listSelected);
-  	};
+  		console.log(this.state.articles);
+  	}
 
-	return (
-	  <Layout pageInfo={{ pageName: "library" }}>
-	    <SEO title="Our Library" />
-	    <h2>Our Library</h2>
-	    <ArticleSearch selectOrder={selectOrder} searchArticle={searchArticle} />
-	    <ArticleList articlesList={listSelected} />
-	    <hr />
-	    <Link to="/">Go back to the homepage</Link>
-	  </Layout>
-	)
+  	componentDidMount() {
+
+  		console.log('Initial sorting of mounted list');
+  		this.selectOrder(this.initValue.order);
+  		
+  	}
+
+	render() {
+
+		return (
+		  <Layout pageInfo={{ pageName: "library" }}>
+		    <SEO title="Our Library" />
+		    <h2>Our Library</h2>
+		    <ArticleSearch selectOrder={this.selectOrder} searchArticle={this.searchArticle} initValue={this.initValue} />
+		    <ArticleList articlesList={this.state.articles} />
+		    <hr />
+		    <Link to="/">Go back to the homepage</Link>
+		  </Layout>
+		)
+	}
 
 }
 

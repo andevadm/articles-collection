@@ -1,3 +1,3 @@
 # Collection of Articles
 
-Site created with Gatsby React Bootstrap
+Simple example of library website created with Gatsby and React-Bootstrap
