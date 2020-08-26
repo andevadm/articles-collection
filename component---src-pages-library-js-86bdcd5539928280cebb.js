@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{QvAJ:function(e,t,a){"use strict";a.r(t),a.d(t,"default",(function(){return o}));var r=a("q1tI"),n=a.n(r),l=a("Wbzz"),i=a("Bl7J"),c=a("vrFN");function o(){return n.a.createElement(i.a,{pageInfo:{pageName:"library"}},n.a.createElement(c.a,{title:"Our Library"}),n.a.createElement("h1",null,"Our Library"),n.a.createElement("p",null,"Here will be a list of the articles"),n.a.createElement(l.Link,{to:"/"},"Go back to the homepage"))}}}]);
+//# sourceMappingURL=component---src-pages-library-js-86bdcd5539928280cebb.js.map
