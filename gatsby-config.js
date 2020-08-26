@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/articles-collection",
   siteMetadata: {
     title: `Collection of Articles`,
     description: `View the articles from our database in a browser`,

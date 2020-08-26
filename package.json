@@ -25,7 +25,7 @@
     "react-icons": "^3.6.1"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.2.0",
     "prettier": "^1.17.0"
   },
   "keywords": [
@@ -43,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/andevadm/articles-collection"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
