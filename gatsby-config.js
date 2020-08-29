@@ -21,8 +21,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `articles-bootstrap`,
-        short_name: `articles-bootstrap`,
+        name: `articles-collection`,
+        short_name: `articles-collection`,
         start_url: `/`,
         background_color: `#20232a`,
         theme_color: `#20232a`,

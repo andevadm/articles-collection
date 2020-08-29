@@ -1,15 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
+import PropTypes from 'prop-types';
+
 import logo from "../images/site-logo.svg"
 
-import { Navbar, Nav } from "react-bootstrap"
+import { Navbar, Nav, Modal, Button } from "react-bootstrap"
+
 
 export default function HeaderNavbar({ pageInfo }) {
 
   return (
     <>
       <Navbar variant="dark" expand="md" id="site-navbar">
-        {/* <Container> */}
 
         <Link to="/" className="link-no-style">
           <Navbar.Brand as="span">
@@ -35,15 +37,53 @@ export default function HeaderNavbar({ pageInfo }) {
           </Nav>
 
           <Nav className="ml-auto">
-            <Link to="/" className="navbar-button link-no-style btn btn-outline-primary">
+            <NavbarButton>
               Contact Us
-            </Link>
+            </NavbarButton> 
           </Nav>
 
         </Navbar.Collapse>
 
-        {/* </Container> */}
       </Navbar>
     </>
   )
 }
+
+function NavbarButton({children}) {
+// Right button on navigation panel
+// children contain a string with name of the button
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button variant="outline-primary" className="navbar-button" onClick={handleShow}>
+        {children}
+      </Button>
+
+      <Modal dialogClassName="navbar-button-modal" show={show} onHide={handleClose}>
+        <Modal.Header className="text-secondary-dark bg-secondary-light" closeButton>
+          <Modal.Title >
+            {children}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="py-4">
+          Find the source files on <a href="https://github.com/andevadm/articles-collection">GitHub</a>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+  
+}
+
+NavbarButton.propTypes = {
+  children: PropTypes.string.isRequired
+};
